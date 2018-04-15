@@ -1,0 +1,63 @@
+body > header {
+    align-items: center;
+    display: flex;
+    height: 6rem;
+    padding: 0 25vw;
+
+    .logo {
+        img {
+            height: 32px;
+            transition: transform 0.25s ease-in-out;
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+        }
+    }
+
+    &.landing {
+        background: url("../assets/background.png") no-repeat center/cover;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+
+        .logo {
+            align-items: center;
+            align-self: flex-start;
+            display: flex;
+            height: 6rem;
+        }
+
+        .titles {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+
+            h1,
+            h2 {
+                font-weight: normal;
+                letter-spacing: 0.05rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+                margin: 0;
+            }
+
+            h2 {
+                color: #aaa;
+                margin-bottom: 0;
+            }
+        }
+
+        .scroll {
+            animation: bounce 1s ease-in-out 1s infinite alternate;
+            font-size: 2rem;
+            opacity: 0.65;
+            padding: 2rem 0;
+            text-decoration: none;
+        }
+    }
+}

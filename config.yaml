@@ -1,0 +1,25 @@
+---
+baseURL: https://blog.facette.io/
+languageCode: en-us
+title: Facette
+
+params:
+  description: Time series visualization software
+  authors:
+    dev:
+      display_name: Development Team
+      location: Paris, France
+      url: https://facette.io/
+
+disableHugoGeneratorInject: true
+enableGitInfo: true
+metaDataFormat: yaml
+outputFormats:
+  RSS:
+    mediaType: application/rss
+    baseName: feed
+permalinks:
+  post: /:year/:month/:day/:slug
+publishDir: dist
+
+# vim: ts=2 sw=2 et

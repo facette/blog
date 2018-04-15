@@ -1,0 +1,59 @@
+{{ template "partials/header.html" . }}
+{{- $_ := .Paginate (where (where .Site.Pages "Type" "post") ".Kind" "==" "page") 5 }}
+{{- if eq .Paginator.PageNumber 1 }}
+<header class="landing">
+{{- else }}
+<header>
+{{- end }}
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+{{- if eq .Paginator.PageNumber 1 }}
+
+    <div class="titles">
+        <h1>{{ .Site.Title }}</h1>
+        <h2>{{ .Site.Params.Description }}</h2>
+    </div>
+    
+    <a class="scroll" href=""><span class="fas fa-chevron-down"></span></a>
+{{- end }}
+</header>
+
+<main>
+{{- range .Paginator.Pages }}
+    <article class="preview">
+        <header>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <time class="field" datetime="{{ .Date.Format "2006-01-02" }}">
+                <span class="far fa-calendar"></span>
+                {{ .Date.Format "02 January 2006" }}
+            </time>
+        </header>
+        {{ .Summary }}
+        {{- if .Truncated }}
+        <p class="more">
+            <a href="{{ .RelPermalink }}">Read more <span class="fas fa-angle-double-right"></span></a>
+        </p>
+        {{- end }}
+    </article>
+{{- end }}
+    <nav>
+        {{- if ne .Paginator.PageNumber 1 }}
+        <a href="{{ .Paginator.Prev.URL }}" class="prev">
+            <span class="label">Newer posts</span>
+            <span class="fas fa-chevron-left"></span>
+        </ul>
+        {{- else }}
+        <a class="placeholder"></a>
+        {{- end }}
+        {{- if ne .Paginator.PageNumber .Paginator.Last.PageNumber }}
+        <a href="{{ .Paginator.Next.URL }}" class="next">
+            <span class="label">Older posts</span>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+        {{- else }}
+        <a class="placeholder"></a>
+        {{- end }}
+    </nav>
+</main>
+{{ template "partials/footer.html" . }}

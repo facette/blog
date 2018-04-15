@@ -1,0 +1,19 @@
+<!-- END CONTENT -->
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a href="{{ .Site.RSSLink }}"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+
+        {{- if .GitInfo }}
+        <p class="modified">Last updated on {{ .GitInfo.AuthorDate.Format "January 2, 2006 - 15:04" }}</p>
+        {{- else }}
+        <p class="modified">Last updated on {{ now.Format "January 2, 2006 - 15:04" }}</p>
+        {{- end }}
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>

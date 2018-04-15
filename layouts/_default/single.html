@@ -1,0 +1,63 @@
+{{ template "partials/header.html" . }}
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>{{ .Title }}</h1>
+            <time class="field" datetime="{{ .Date.Format "2006-01-02" }}">
+                <span class="far fa-calendar"></span>
+                {{ .Date.Format "January 02, 2006" }}
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                {{ .ReadingTime }} min
+            </span>
+        </header>
+        {{ .Content }}
+        <footer>
+            {{- if .Params.author }}{{ $author := index .Site.Params.authors .Params.author }}
+            <div class="author">
+                <strong>{{ $author.display_name }}</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> {{ $author.location }}</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="{{ $author.url }}">{{ $author.url }}</a></span>
+            </div>
+            {{- end }}
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text={{ .Title }}&amp;url={{ .Permalink }}"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url={{ .Permalink }}"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    {{- if or .PrevInSection .NextInSection }}
+    <nav>
+        {{- if .PrevInSection }}
+        <a class="prev" href="{{ .PrevInSection.RelPermalink }}">
+            <span class="label">Previous post</span>
+            <strong class="title">{{ .PrevInSection.Title }}</strong>
+            <time datetime="{{ .PrevInSection.Date.Format "2006-01-02" }}">{{ .PrevInSection.Date.Format "January 02, 2006" }}</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        {{- else }}
+        <a class="placeholder"></a>
+        {{- end }}
+        {{- if .NextInSection }}
+        <a class="next" href="{{ .NextInSection.RelPermalink }}">
+            <span class="label">Next post</span>
+            <strong class="title">{{ .NextInSection.Title }}</strong>
+            <time datetime="{{ .NextInSection.Date.Format "2006-01-02" }}">{{ .NextInSection.Date.Format "January 02, 2006" }}</time>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+        {{- else }}
+        <a class="placeholder"></a>
+        {{- end }}
+    </nav>
+    {{- end }}
+</main>
+{{ template "partials/footer.html" . }}

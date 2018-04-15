@@ -1,0 +1,32 @@
+@font-face {
+    font-display: swap;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Roboto Regular"),
+         local("Roboto-Regular"),
+         url("~typeface-roboto/files/roboto-latin-400.woff2") format("woff2"),
+         url("~typeface-roboto/files/roboto-latin-400.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Roboto Medium"),
+         local("Roboto-Medium"),
+         url("~typeface-roboto/files/roboto-latin-500.woff2") format("woff2"),
+         url("~typeface-roboto/files/roboto-latin-500.woff") format("woff");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Roboto Mono Regular"),
+         local("Roboto Mono-Regular"),
+         url("~typeface-roboto-mono/files/roboto-mono-latin-400.woff2") format("woff2"),
+         url("~typeface-roboto-mono/files/roboto-mono-latin-400.woff") format("woff");
+}

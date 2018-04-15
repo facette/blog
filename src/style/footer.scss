@@ -1,0 +1,30 @@
+body > footer {
+    color: #aaa;
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    padding: 1rem 25vw;
+    text-align: center;
+
+    ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+
+        li + li {
+            margin-left: 1.5rem;
+        }
+    }
+
+    p.modified {
+        opacity: 0.5;
+    }
+
+    a {
+        text-decoration: none;
+
+        [data-icon] {
+            margin-right: 0.125rem;
+        }
+    }
+}

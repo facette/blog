@@ -1,0 +1,9 @@
+import "./reset.scss";
+import "./font.scss";
+import "./animation.scss";
+import "./body.scss";
+import "./header.scss";
+import "./main.scss";
+import "./article.scss";
+import "./nav.scss";
+import "./footer.scss";
