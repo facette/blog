@@ -3,7 +3,7 @@
         <ul>
             <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
             <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
-            <li><a href="{{ .Site.RSSLink }}"><span class="fas fa-rss"></span> Subscribe</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}"><span class="fas fa-rss"></span> Subscribe</a></li>
         </ul>
 
         {{- if .GitInfo }}
