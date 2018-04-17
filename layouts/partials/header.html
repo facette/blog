@@ -5,6 +5,7 @@
     <title>{{ cond (ne .Title "") .Title .Site.Title }}</title>
     <meta name="description" content="{{ cond .IsHome .Site.Params.Description ""}}">
     <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="alternate" type="application/rss+xml" title="Facette" href="{{ .Site.RSSLink }}">
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="shortcut icon" href="/assets/favicon.png">

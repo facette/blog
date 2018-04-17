@@ -28,3 +28,14 @@ body > footer {
         }
     }
 }
+
+@media screen and (orientation: portrait) {
+    body > footer {
+        flex-direction: column;
+        padding: 1rem 15vw;
+
+        ul {
+            justify-content: center;
+        }
+    }
+}

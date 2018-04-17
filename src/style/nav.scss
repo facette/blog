@@ -69,3 +69,10 @@ main nav {
         }
     }
 }
+
+@media screen and (orientation: portrait) {
+    main nav {
+        margin: 0 -15vw;
+        padding: 1rem 15vw;
+    }
+}
