@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facette</title>
+    <meta name="description" content="Time series visualization software">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facette">
+    <meta property="og:description" content="Time series visualization software">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main>
+    <article class="preview">
+        <header>
+            <h2><a href="/2015/03/23/dive-into-facette-graph-templates/">Dive into Facette: graph templates</a></h2>
+            <time class="field" datetime="2015-03-23">
+                <span class="far fa-calendar"></span>
+                23 March 2015
+            </time>
+        </header>
+        <p>Graph templates have been introduced in the <a href="https://blog.facette.io/2015/03/23/facette-0-3-0rc1/">0.3.0rc1</a> version of
+Facette.</p>
+
+<p>Instead of the somewhat tedious process of manually creating/cloning similar
+graphs for a possibly large number of sources and metrics, templates allow you
+to create a graph &ldquo;model&rdquo; once that can then be instanciated as many times you
+want to create graphs by only specifying the attributes needed. By extension,
+any change made to a template is automatically applied to all graphs
+instanciating this template. No more having to edit all your graphs because of
+a slight change in a description or an axis label!</p>
+        <p class="more">
+            <a href="/2015/03/23/dive-into-facette-graph-templates/">Read more <span class="fas fa-angle-double-right"></span></a>
+        </p>
+    </article>
+    <article class="preview">
+        <header>
+            <h2><a href="/2015/03/23/facette-0-3-0rc1-released/">Facette 0.3.0rc1 released</a></h2>
+            <time class="field" datetime="2015-03-23">
+                <span class="far fa-calendar"></span>
+                23 March 2015
+            </time>
+        </header>
+        <p>The long overdue 0.3.0 release is finally around the corner! We&rsquo;ve decided to
+<a href="https://github.com/facette/facette/releases/tag/0.3.0rc1">release</a> the next version of Facette as a <em>release candidate</em> due to the
+number of changes and new features: although we&rsquo;ve done our best to test it
+and run it in production for weeks to squash bugs, we&rsquo;d like users to provide
+feedback before releasing the 0.3.0 version.</p>
+        <p class="more">
+            <a href="/2015/03/23/facette-0-3-0rc1-released/">Read more <span class="fas fa-angle-double-right"></span></a>
+        </p>
+    </article>
+    <article class="preview">
+        <header>
+            <h2><a href="/2014/12/15/facette-0-2-3-released/">Facette 0.2.3 released</a></h2>
+            <time class="field" datetime="2014-12-15">
+                <span class="far fa-calendar"></span>
+                15 December 2014
+            </time>
+        </header>
+        Here comes the version 0.2.3 of Facette, containing the following bugfixes:
+ Fix issue in InfluxDB connector with unescaped series names Fix missing titles in collection graphs listing Fix relations update with collections parents Fix issue with graph draw queue failing to propagate time spans Fix InfluxDB 1.8 client result backend support  The development is still focused on stabilizing the backend and refactoring the UI code to improve its maintainability.
+        <p class="more">
+            <a href="/2014/12/15/facette-0-2-3-released/">Read more <span class="fas fa-angle-double-right"></span></a>
+        </p>
+    </article>
+    <article class="preview">
+        <header>
+            <h2><a href="/2014/11/16/facette-0-2-2-released/">Facette 0.2.2 released</a></h2>
+            <time class="field" datetime="2014-11-16">
+                <span class="far fa-calendar"></span>
+                16 November 2014
+            </time>
+        </header>
+        Here comes the version 0.2.2 of Facette; this is a bugfix release:
+ Fix invalid metric name when editing graph metrics Fix operation groups custom colors management issue Fix buggy globbing in source/metric groups UI improvements  Unless major bug uncovered, this is the last release before 0.3.0 version. We&rsquo;re currently working on greatly improving the library administration and user interface in general. Stay tuned!
+    </article>
+    <article class="preview">
+        <header>
+            <h2><a href="/2014/10/14/facette-0-2-1-released/">Facette 0.2.1 released</a></h2>
+            <time class="field" datetime="2014-10-14">
+                <span class="far fa-calendar"></span>
+                14 October 2014
+            </time>
+        </header>
+        We just released the version 0.2.1 of Facette:
+ Add support for InfluxDB &gt;= 0.8 Fix issues with unitialized autofill option Fix bad legend rendering in embeddable mode Fix missing facette connector build in Makefile Fix broken facette connector following last code refactoring Fix bad filter match separator Fix percentiles parsing Fix missing constants draw Fix various graph/series options issues Prevent panic when offset or limit is negative  
+    </article>
+    <nav>
+        <a href="/" class="prev">
+            <span class="label">Newer posts</span>
+            <span class="fas fa-chevron-left"></span>
+        </ul>
+        <a href="/page/3/" class="next">
+            <span class="label">Older posts</span>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on April 19, 2018 - 07:58</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>

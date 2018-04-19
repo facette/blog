@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Facette</title>
+    <link>https://blog.facette.io/</link>
+    <description>Recent content on Facette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Dec 2017 14:53:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.facette.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Facette 0.4.0 released</title>
+      <link>https://blog.facette.io/2017/12/19/facette-0-4-0-released/</link>
+      <pubDate>Tue, 19 Dec 2017 14:53:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2017/12/19/facette-0-4-0-released/</guid>
+      <description>&lt;p&gt;After an extended real-world testing phase, we&amp;rsquo;re confident enough to finally
+release the 0.4.0 branch of Facette as &lt;em&gt;production ready&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are the highlights of this new version (you can read the complete list of
+changes and improvements in the
+&lt;a href=&#34;https://blog.facette.io/2017/06/21/facette-0-4-0alpha1-released/&#34;&gt;post announcing the first alpha release&lt;/a&gt;):&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.4.0rc2 released</title>
+      <link>https://blog.facette.io/2017/07/26/facette-0-4-0rc2-released/</link>
+      <pubDate>Wed, 26 Jul 2017 08:25:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2017/07/26/facette-0-4-0rc2-released/</guid>
+      <description>&lt;p&gt;After a new batch of fixes and improvements, here is the second release
+candidate for the 0.4 branch of Facette:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.4.0rc1 released</title>
+      <link>https://blog.facette.io/2017/07/09/facette-0-4-0rc1-released/</link>
+      <pubDate>Sun, 09 Jul 2017 10:46:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2017/07/09/facette-0-4-0rc1-released/</guid>
+      <description>&lt;p&gt;A few bugs less and some improvements later, here is the first release
+candidate for the 0.4.x branch of Facette:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.4.0alpha1 released</title>
+      <link>https://blog.facette.io/2017/06/21/facette-0-4-0alpha1-released/</link>
+      <pubDate>Wed, 21 Jun 2017 14:24:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2017/06/21/facette-0-4-0alpha1-released/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been an awfully long time since the latest release, and we&amp;rsquo;re truly sorry
+for that. However here&amp;rsquo;s the good news: the first alpha release of Facette
+0.4.0 is here, and there&amp;rsquo;s a lot to say about it.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.3.0 released</title>
+      <link>https://blog.facette.io/2015/07/08/facette-0-3-0-released/</link>
+      <pubDate>Wed, 08 Jul 2015 13:42:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2015/07/08/facette-0-3-0-released/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/facette/facette/releases/tag/0.3.0&#34;&gt;0.3.0&lt;/a&gt; release is finally here! Along with the changes announced
+in the previous &lt;a href=&#34;https://blog.facette.io/2015/03/23/facette-0-3-0rc1/&#34;&gt;release candidate&lt;/a&gt;, here comes the
+improvements of this final release:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dive into Facette: graph templates</title>
+      <link>https://blog.facette.io/2015/03/23/dive-into-facette-graph-templates/</link>
+      <pubDate>Mon, 23 Mar 2015 12:57:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2015/03/23/dive-into-facette-graph-templates/</guid>
+      <description>&lt;p&gt;Graph templates have been introduced in the &lt;a href=&#34;https://blog.facette.io/2015/03/23/facette-0-3-0rc1/&#34;&gt;0.3.0rc1&lt;/a&gt; version of
+Facette.&lt;/p&gt;
+
+&lt;p&gt;Instead of the somewhat tedious process of manually creating/cloning similar
+graphs for a possibly large number of sources and metrics, templates allow you
+to create a graph &amp;ldquo;model&amp;rdquo; once that can then be instanciated as many times you
+want to create graphs by only specifying the attributes needed. By extension,
+any change made to a template is automatically applied to all graphs
+instanciating this template. No more having to edit all your graphs because of
+a slight change in a description or an axis label!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.3.0rc1 released</title>
+      <link>https://blog.facette.io/2015/03/23/facette-0-3-0rc1-released/</link>
+      <pubDate>Mon, 23 Mar 2015 12:54:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2015/03/23/facette-0-3-0rc1-released/</guid>
+      <description>&lt;p&gt;The long overdue 0.3.0 release is finally around the corner! We&amp;rsquo;ve decided to
+&lt;a href=&#34;https://github.com/facette/facette/releases/tag/0.3.0rc1&#34;&gt;release&lt;/a&gt; the next version of Facette as a &lt;em&gt;release candidate&lt;/em&gt; due to the
+number of changes and new features: although we&amp;rsquo;ve done our best to test it
+and run it in production for weeks to squash bugs, we&amp;rsquo;d like users to provide
+feedback before releasing the 0.3.0 version.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.2.3 released</title>
+      <link>https://blog.facette.io/2014/12/15/facette-0-2-3-released/</link>
+      <pubDate>Mon, 15 Dec 2014 20:03:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/12/15/facette-0-2-3-released/</guid>
+      <description>Here comes the version 0.2.3 of Facette, containing the following bugfixes:
+ Fix issue in InfluxDB connector with unescaped series names Fix missing titles in collection graphs listing Fix relations update with collections parents Fix issue with graph draw queue failing to propagate time spans Fix InfluxDB 1.8 client result backend support  The development is still focused on stabilizing the backend and refactoring the UI code to improve its maintainability.</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.2.2 released</title>
+      <link>https://blog.facette.io/2014/11/16/facette-0-2-2-released/</link>
+      <pubDate>Sun, 16 Nov 2014 12:00:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/11/16/facette-0-2-2-released/</guid>
+      <description>Here comes the version 0.2.2 of Facette; this is a bugfix release:
+ Fix invalid metric name when editing graph metrics Fix operation groups custom colors management issue Fix buggy globbing in source/metric groups UI improvements  Unless major bug uncovered, this is the last release before 0.3.0 version. We&amp;rsquo;re currently working on greatly improving the library administration and user interface in general. Stay tuned!</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.2.1 released</title>
+      <link>https://blog.facette.io/2014/10/14/facette-0-2-1-released/</link>
+      <pubDate>Tue, 14 Oct 2014 07:52:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/10/14/facette-0-2-1-released/</guid>
+      <description>We just released the version 0.2.1 of Facette:
+ Add support for InfluxDB &amp;gt;= 0.8 Fix issues with unitialized autofill option Fix bad legend rendering in embeddable mode Fix missing facette connector build in Makefile Fix broken facette connector following last code refactoring Fix bad filter match separator Fix percentiles parsing Fix missing constants draw Fix various graph/series options issues Prevent panic when offset or limit is negative  </description>
+    </item>
+    
+    <item>
+      <title>Facette 0.2.0 released</title>
+      <link>https://blog.facette.io/2014/09/10/facette-0-2-0-released/</link>
+      <pubDate>Wed, 10 Sep 2014 23:23:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/09/10/facette-0-2-0-released/</guid>
+      <description>&lt;p&gt;Here it is: the first big Facette milestone since its first release. We&amp;rsquo;re
+happy to announce the version &lt;a href=&#34;https://github.com/facette/facette/releases/tag/0.2.0&#34;&gt;0.2.0&lt;/a&gt;, that comes with a nice load of
+bug fixes, new features and various improvements.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.1.2 released</title>
+      <link>https://blog.facette.io/2014/08/01/facette-0-1-2-released/</link>
+      <pubDate>Fri, 01 Aug 2014 15:23:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/08/01/facette-0-1-2-released/</guid>
+      <description>&lt;p&gt;We just released the version &lt;a href=&#34;https://github.com/facette/facette/releases/tag/0.1.2&#34;&gt;0.1.2&lt;/a&gt; of Facette:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 101</title>
+      <link>https://blog.facette.io/2014/07/31/facette-101/</link>
+      <pubDate>Thu, 31 Jul 2014 18:43:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/07/31/facette-101/</guid>
+      <description>&lt;p&gt;You&amp;rsquo;ve decided to give Facette a try with your metrics, good for you! After
+installing &lt;a href=&#34;https://github.com/facette/facette/releases&#34;&gt;the latest version&lt;/a&gt;, open your browser and point it to
+the address it is listening on — that would be
+&lt;a href=&#34;http://localhost:12003&#34;&gt;http://localhost:12003&lt;/a&gt; if using the default settings — and
+*BAM!*, here you are:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Facette 0.1.1 released</title>
+      <link>https://blog.facette.io/2014/07/12/facette-0-1-1-released/</link>
+      <pubDate>Sat, 12 Jul 2014 17:22:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/07/12/facette-0-1-1-released/</guid>
+      <description>&lt;p&gt;We just released the version &lt;a href=&#34;https://github.com/facette/facette/releases/tag/0.1.1&#34;&gt;0.1.1&lt;/a&gt; of Facette:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ship It!</title>
+      <link>https://blog.facette.io/2014/07/05/ship-it/</link>
+      <pubDate>Sat, 05 Jul 2014 19:08:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2014/07/05/ship-it/</guid>
+      <description>After being told this for months, we are excited to announce the first public release of Facette!
+You can download Facette 0.1.0 from Github, and the documentation is available here.
+Facette is a web application to display time series data from various sources — such as collectd or Graphite — on graphs. Big deal, I know. However, one of the strengths of Facette is to be able to display metrics from different tools on the same graphs, seamlessly.</description>
+    </item>
+    
+  </channel>
+</rss>

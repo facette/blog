@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facette 0.2.0 released</title>
+    <meta name="description" content="">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facette 0.2.0 released">
+    <meta property="og:description" content="Here it is: the first big Facette milestone since its first release. We&rsquo;re
+happy to announce the version 0.2.0, that comes with a nice load of
+bug fixes, new features and various improvements.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/2014/09/10/facette-0-2-0-released/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/2014/09/10/facette-0-2-0-released/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>Facette 0.2.0 released</h1>
+            <time class="field" datetime="2014-09-10">
+                <span class="far fa-calendar"></span>
+                September 10, 2014
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                5 min
+            </span>
+        </header>
+        <p>Here it is: the first big Facette milestone since its first release. We&rsquo;re
+happy to announce the version <a href="https://github.com/facette/facette/releases/tag/0.2.0">0.2.0</a>, that comes with a nice load of
+bug fixes, new features and various improvements.</p>
+
+<h2 id="new-in-0-2-0">New in 0.2.0</h2>
+
+<h3 id="influxdb-connector">InfluxDB connector</h3>
+
+<p>Due to popular demand, we&rsquo;ve implemented a connector to query metrics stored
+in a <a href="http://influxdb.com/">InfluxDB</a> database. This connector is experimental at the
+moment, and supports InfluxDB up to version 0.7.x. Check out the Facette
+<a href="http://docs.facette.io/configuration/connectors/">documentation</a> to see how to configure a provider using the
+<code>influxdb</code> connector.</p>
+
+<h3 id="unix-socket-support-for-backend">UNIX socket support for backend</h3>
+
+<p>When using Facette through a reverse proxy on the same host, it is now
+possible to access the back-end server using a UNIX socket instead of a TCP
+connection to both reduce network overhead and improve security. Thanks to
+Skrupellos for <a href="https://github.com/facette/facette/pull/109">this contribution</a>.</p>
+
+<h3 id="sieve-provider-filter">&ldquo;sieve&rdquo; provider filter</h3>
+
+<p>The new <code>sieve</code> filter does the opposite of the <code>discard</code> filter: it only lets
+records whose target match the rule pattern pass through.</p>
+
+<h3 id="series-operations">Series operations</h3>
+
+<p>Series operations — sum, average etc. — can now be performed on series coming
+from different origins, as the caculations are now handled internally by
+Facette.</p>
+
+<p>This new version also introduces a new series operation: <em>normalize</em>. It
+aligns several series with different precisions on common time step (this is
+also done implicitely for <em>sum</em> and <em>average</em> operations).</p>
+
+<h3 id="read-only-mode">Read-only mode</h3>
+
+<p>A <em>read-only</em> mode has been implemented to expose a Facette instance with all
+data-altering API calls disabled. It can be useful when you want to provide a
+&ldquo;looking glass&rdquo; graph front-end to you users and you don&rsquo;t want them to modify
+defined graphs and collections.</p>
+
+<h3 id="embeddable-graphs">Embeddable graphs</h3>
+
+<p>Graphs toolbar now feature a &ldquo;Embeddable graph&rdquo; button that links the graph to
+a standalone view that can for instance be embedded in a page through a HTML
+<code>iframe</code> from another dashboard:</p>
+
+<p><img src="/content/images/2014/Aug/sshot_facette_embedable_graph.png" alt="" /></p>
+
+<h3 id="multiple-fixed-graph-plot-lines">Multiple fixed graph plot lines</h3>
+
+<p>It is now possible to display multiple fixed plot lines on a graph to
+highlight significative values from the legend:</p>
+
+<p><img src="/content/images/2014/Aug/sshot_facette_multiple_fixed_plotlines-1.png" alt="" /></p>
+
+<h3 id="series-auto-naming">Series auto-naming</h3>
+
+<p>Series added to graphs at creation/modification stage are now automatically
+pre-named according to their origin/source/metric names instead of the
+previous <em>serie#</em> name.</p>
+
+<h3 id="foldable-graph-legends">Foldable graph legends</h3>
+
+<p>Graph legends are now foldable, and are folded by default to save space at
+collections display: click on the arrow a the bottom of a graph to expand the
+legend.</p>
+
+<h3 id="series-per-stack-sums">Series per stack sums</h3>
+
+<p>Tooltips on graphs now display the sum of the series values for each point.
+When using stacks, sums are displayed per stack.</p>
+
+<p><img src="/content/images/2014/Sep/sshot-facette-tooltip-sum-1.png" alt="" /></p>
+
+<h3 id="toggle-graphs-visibility-in-collections">Toggle graphs visibility in collections</h3>
+
+<p>If you created a <em>collection</em>, it is now possible to &ldquo;hide&rdquo; a graph included
+in that collection without having to remove it and add it later if need be. In
+a collection edition page, just click on the toggler near the graph name and
+it won&rsquo;t be displayed in the collection page.</p>
+
+<h3 id="graphs-collections-auto-refresh">Graphs collections auto-refresh</h3>
+
+<p>You can now set an automatic refresh delay at graph-level or collection-level.</p>
+
+<h3 id="docker-image-support">Docker image support</h3>
+
+<p>A <code>Dockerfile</code> is now provided with the sources to build a Docker image
+straight from the source tree. Thanks to Michael Crosby from Docker for
+<a href="https://github.com/facette/facette/pull/82">this contribution</a>.</p>
+
+<h3 id="opensearch-support">OpenSearch support</h3>
+
+<p>The landing page search bar is now available through the
+<a href="http://www.opensearch.org/Home">OpenSearch</a> standard.</p>
+
+<p>You can now search directly for Facette&rsquo;s items in your favorite browser.</p>
+
+<h3 id="hidpi-displays-support">HiDPI displays support</h3>
+
+<p>Facette now looks better when displayed on HiDPI-compatible (a.k.a. &ldquo;Retina&rdquo;)
+screens.</p>
+
+<h3 id="shortcut-links">Shortcut links</h3>
+
+<p>Shortcut links are now available to help switching between edition and display
+modes when dealing with graphs and collections.</p>
+
+<h2 id="changes">Changes</h2>
+
+<h3 id="base-server-settings-are-now-optional">Base server settings are now optional</h3>
+
+<p>Prior to version 0.2.0 some base server settings were mandatory: default
+values are now set for all settings, refer to the documentation for the
+details.</p>
+
+<h3 id="server-catalog-refresh-api-call-removed">Server catalog refresh API call removed</h3>
+
+<p>For consistency purpose we decided to remove the API call and front-end
+controls allowing to refresh server catalog from the front-end in favor of the
+<a href="http://docs.facette.io/usage/">facettectl</a> utility.</p>
+
+<h3 id="provider-filter-rules-format">Provider filter rules format</h3>
+
+<p>The provider filtering rules format has changed and is incompatible with the
+previous versions: please refer to the <a href="http://docs.facette.io/configuration/filters/">filters documentation</a> to
+adapt your filtering rules. We&rsquo;re sorry for the inconvenience, but this was a
+necessary change to support matched pattern suppression (see
+<a href="https://github.com/facette/facette/issues/97">this Github issue</a> for further explanations).</p>
+
+<h2 id="dude-where-are-my-graphs">Dude, where are my graphs?</h2>
+
+<p>As a side-effect of the new feature enabling to toggle graph visibility in a
+collection, all graphs listed in a collection will be <strong>hidden by default</strong>
+when you upgrade from 0.1.x to 0.2.0. Here is a little Python code snippet
+that you can drop in a shell to &ldquo;convert&rdquo; your existing collection definitions
+to the new format (don&rsquo;t forget to adapt the path to your actual Facette
+collections directory in the <code>$FACETTE_COLLECTIONS</code> variable):</p>
+
+<pre><code class="language-shell">export FACETTE_COLLECTIONS=&quot;/var/lib/facette/collections/&quot;
+cat &lt;&lt;EOF | python - $FACETTE_COLLECTIONS
+import json
+import os
+import sys
+
+for root, _, files in os.walk(sys.argv[1]):
+    for file in files:
+    collectionFile = os.path.join(root, file)
+
+    print &quot;* Converting data file&quot;, os.path.join(collectionFile)
+
+    cfp = open(collectionFile, 'rw')
+    collection = json.load(cfp)
+    cfp.close()
+
+    for entry in collection[&quot;entries&quot;]:
+        entry[&quot;options&quot;][&quot;enabled&quot;] = True
+
+    cfp = open(collectionFile, 'w')
+    json.dump(collection, cfp, indent=4)
+    cfp.close()
+EOF
+</code></pre>
+
+<h2 id="thank-you">Thank you</h2>
+
+<p>Thank you to our first users and especially early contributors: it&rsquo;s nice to
+see that Facette is getting some traction and visibility that soon, and your
+feedbacks help us improving this software.</p>
+        <footer>
+            <div class="author">
+                <strong>Development Team</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> Paris, France</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="https://facette.io/">https://facette.io/</a></span>
+            </div>
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text=Facette%200.2.0%20released&amp;url=https%3a%2f%2fblog.facette.io%2f2014%2f09%2f10%2ffacette-0-2-0-released%2f"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.facette.io%2f2014%2f09%2f10%2ffacette-0-2-0-released%2f"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url=https%3a%2f%2fblog.facette.io%2f2014%2f09%2f10%2ffacette-0-2-0-released%2f"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    <nav>
+        <a class="prev" href="/2014/08/01/facette-0-1-2-released/">
+            <span class="label">Previous post</span>
+            <strong class="title">Facette 0.1.2 released</strong>
+            <time datetime="2014-08-01">August 01, 2014</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="next" href="/2014/10/14/facette-0-2-1-released/">
+            <span class="label">Next post</span>
+            <strong class="title">Facette 0.2.1 released</strong>
+            <time datetime="2014-10-14">October 14, 2014</time>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on April 15, 2018 - 14:57</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>

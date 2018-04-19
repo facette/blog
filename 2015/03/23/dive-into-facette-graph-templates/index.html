@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dive into Facette: graph templates</title>
+    <meta name="description" content="">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Dive into Facette: graph templates">
+    <meta property="og:description" content="Graph templates have been introduced in the 0.3.0rc1 version of
+Facette.
+
+Instead of the somewhat tedious process of manually creating/cloning similar
+graphs for a possibly large number of sources and metrics, templates allow you
+to create a graph &ldquo;model&rdquo; once that can then be instanciated as many times you
+want to create graphs by only specifying the attributes needed. By extension,
+any change made to a template is automatically applied to all graphs
+instanciating this template. No more having to edit all your graphs because of
+a slight change in a description or an axis label!">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/2015/03/23/dive-into-facette-graph-templates/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/2015/03/23/dive-into-facette-graph-templates/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>Dive into Facette: graph templates</h1>
+            <time class="field" datetime="2015-03-23">
+                <span class="far fa-calendar"></span>
+                March 23, 2015
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                3 min
+            </span>
+        </header>
+        <p>Graph templates have been introduced in the <a href="https://blog.facette.io/2015/03/23/facette-0-3-0rc1/">0.3.0rc1</a> version of
+Facette.</p>
+
+<p>Instead of the somewhat tedious process of manually creating/cloning similar
+graphs for a possibly large number of sources and metrics, templates allow you
+to create a graph &ldquo;model&rdquo; once that can then be instanciated as many times you
+want to create graphs by only specifying the attributes needed. By extension,
+any change made to a template is automatically applied to all graphs
+instanciating this template. No more having to edit all your graphs because of
+a slight change in a description or an axis label!</p>
+
+<p>Head to the <em>Graphs</em> library section of the administration. You&rsquo;ll notice that
+there are now 2 buttons in the header: the first one to create &ldquo;plain&rdquo; graphs
+(the ones you used to create so far) but now also graph templates, and a
+second new one to create <em>linked</em> graphs – which are graphs instanciating a
+template.  Let&rsquo;s first create a graph template, which begins the same way as
+for creating a traditional graph.</p>
+
+<p><img src="/images/2015/03/facette_tpl_01.png" alt="screenshot" /></p>
+
+<p>Once in the <em>metrics list</em> page, we type in the <em>Source</em> field a templating
+tag – enclosed in double braces symbol, <code>{{ .&lt;attribute name&gt; }}</code> –
+referencing a <code>.source</code> attribute: this is arbitrary, the attribute can be
+named as you wish (e.g. <code>.server</code> or <code>.host</code>) – but it has to be prefixed with
+a dot. Next, select a metric or a metric group in the <em>Metric</em> field and add
+the metric to the list, then move on the final step of the graph creation
+process.</p>
+
+<p><img src="/images/2015/03/facette_tpl_02.png" alt="screenshot" /></p>
+
+<p>As the web interface detects the presence of templating tags in one of the
+previous fields it adds a new <em>Template attributes</em> section under the graph
+preview: you can test the rendering of your graph by entering values that will
+be used where you entered the attributes in the metrics list. Note: this is
+optional, the values you enter here are for testing only and will <strong>not</strong> be
+registered as attributes.</p>
+
+<p>For example, when I set the <em>source</em> template attribute to match an existing
+source the graph preview is triggered:</p>
+
+<p><img src="/images/2015/03/facette_tpl_03.png" alt="screenshot" /></p>
+
+<p>Complete the graph template creation by clicking on the <em>Save template</em> button
+when you&rsquo;re set. Once you&rsquo;re done, you&rsquo;ll see the graph template you just
+created in the graph templates list. To create a graph that uses this
+template, click on the second button &ldquo;Add From Template&rdquo; in the header.</p>
+
+<p>The process of creating a graph from a template is much more concise: enter a
+unique name for the graph, then select the template to use by starting to type
+its name in the <em>Source Template</em> field and finally set values for the
+template attributes you&rsquo;ve declared when creating the template.</p>
+
+<p><img src="/images/2015/03/facette_tpl_04.png" alt="screenshot" /></p>
+
+<p>To confirm everything works as expected, the graph preview is triggered when
+existing values are entered:</p>
+
+<p><img src="/images/2015/03/facette_tpl_05.png" alt="screenshot" /></p>
+
+<p>Once you&rsquo;re done, you can save the graph. You&rsquo;ll notice back in the graphs
+list that the graph you just created has its &ldquo;templated&rdquo; fields rendered:</p>
+
+<p><img src="/images/2015/03/facette_tpl_06.png" alt="screenshot" /></p>
+
+<p>You can then display the full graph by clicking on the arrow-shaped icon
+&ldquo;Go to graph&rdquo;:</p>
+
+<p><img src="/images/2015/03/facette_tpl_07.png" alt="screenshot" /></p>
+
+<p>Pretty simple, huh?</p>
+
+<p>The fields that can serve as templates are:</p>
+
+<ul>
+<li>series <em>origin</em></li>
+<li>series <em>source</em></li>
+<li>series <em>metric</em></li>
+<li>graph description</li>
+<li>graph title</li>
+</ul>
+
+<p>You can of course add multiple template tags and template attributes per
+graph:</p>
+
+<p><img src="/images/2015/03/facette_tpl_08.png" alt="screenshot" />
+<img src="/images/2015/03/facette_tpl_09.png" alt="screenshot" /></p>
+        <footer>
+            <div class="author">
+                <strong>Development Team</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> Paris, France</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="https://facette.io/">https://facette.io/</a></span>
+            </div>
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text=Dive%20into%20Facette%3a%20graph%20templates&amp;url=https%3a%2f%2fblog.facette.io%2f2015%2f03%2f23%2fdive-into-facette-graph-templates%2f"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.facette.io%2f2015%2f03%2f23%2fdive-into-facette-graph-templates%2f"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url=https%3a%2f%2fblog.facette.io%2f2015%2f03%2f23%2fdive-into-facette-graph-templates%2f"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    <nav>
+        <a class="prev" href="/2015/03/23/facette-0-3-0rc1-released/">
+            <span class="label">Previous post</span>
+            <strong class="title">Facette 0.3.0rc1 released</strong>
+            <time datetime="2015-03-23">March 23, 2015</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="next" href="/2015/07/08/facette-0-3-0-released/">
+            <span class="label">Next post</span>
+            <strong class="title">Facette 0.3.0 released</strong>
+            <time datetime="2015-07-08">July 08, 2015</time>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on April 15, 2018 - 14:57</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>

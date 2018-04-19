@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facette 101</title>
+    <meta name="description" content="">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facette 101">
+    <meta property="og:description" content="You&rsquo;ve decided to give Facette a try with your metrics, good for you! After
+installing the latest version, open your browser and point it to
+the address it is listening on — that would be
+http://localhost:12003 if using the default settings — and
+*BAM!*, here you are:">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/2014/07/31/facette-101/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/2014/07/31/facette-101/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>Facette 101</h1>
+            <time class="field" datetime="2014-07-31">
+                <span class="far fa-calendar"></span>
+                July 31, 2014
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                3 min
+            </span>
+        </header>
+        <p>You&rsquo;ve decided to give Facette a try with your metrics, good for you! After
+installing <a href="https://github.com/facette/facette/releases">the latest version</a>, open your browser and point it to
+the address it is listening on — that would be
+<a href="http://localhost:12003">http://localhost:12003</a> if using the default settings — and
+*BAM!*, here you are:</p>
+
+<p><img src="/images/2014/07/facette101-homepage.png" alt="snapshot" /></p>
+
+<p>Nothing much to be seen so far, let&rsquo;s do something about it: get to the
+<del>choppa</del> administration panel by clicking on the cog-shaped icon next to the
+logo in the upper left corner:</p>
+
+<p><img src="/images/2014/07/facette101-admin_homepage.png" alt="snapshot" /></p>
+
+<p>We&rsquo;re going to create our very first graph by heading to the <em>Graphs</em> section
+of the library in the navigation bar on the left side of the screen. From
+there, click on the <strong>+</strong> (<em>plus</em>) sign next to the section title to create a
+graph.</p>
+
+<p>Our first graph will feature 3 series of metrics from the host
+<em>host1.example.net</em>, acquired through the provider &ldquo;collectd&rdquo;:
+<em>load.shortterm</em>, <em>load.midterm</em> and <em>load.longterm</em>.</p>
+
+<p>Note: when focusing a field, type a <strong>?</strong> (<em>question mark</em>) sign to show the
+auto-completion:</p>
+
+<p><img src="/images/2014/07/facette101-admin_newgraph1.png" alt="snapshot" /></p>
+
+<p>Now that we&rsquo;ve added the 3 series to the metrics list, we move on the the next
+step by clicking on the <em>Next</em> button.</p>
+
+<p>This step allows us to set up how the series are handled: among other things,
+we can rename them, assign them a custom color or re-order the list. For the
+exercise, we will rename the series <em>serie0</em>, <em>serie1</em> and <em>serie2</em> into
+<em>1mn</em>, <em>5mn</em> and <em>15mn</em>. To rename a series, click on the pen-shaped icon next
+to its name:</p>
+
+<p><img src="/images/2014/07/facette101-admin_newgraph2.png" alt="snapshot" /></p>
+
+<p>Once our series are renamed, we click on the <em>Next</em> button to move on to the
+final step of the graph creation:</p>
+
+<p><img src="/images/2014/07/facette101-admin_newgraph3.png" alt="snapshot" /></p>
+
+<p>The last step gives us a live preview of our graph, and we have to give it a
+name. We can also tweak some of the graph properties, such as the style of the
+plots (line or area-shaped), add a description or set labels for the Y-axis.
+Let&rsquo;s add a description and choose to represent our plots as lines:</p>
+
+<p><img src="/images/2014/07/facette101-admin_newgraph4.png" alt="snapshot" /></p>
+
+<p>Finally, after saving your graph you will find it showing up in the graphs
+list:</p>
+
+<p><img src="/images/2014/07/facette101-admin_newgraph5.png" alt="snapshot" /></p>
+
+<p>Getting back to the &ldquo;public&rdquo; side of Facette by clicking on the arrow-shaped
+icon next to the logo in the upper left corner, we access our newly created
+graph by typing &ldquo;load&rdquo; in the homepage search field:</p>
+
+<p><img src="/images/2014/07/facette101-firstgraph.png" alt="snapshot" /></p>
+
+<p>That was easy, wasn&rsquo;t it? ;-)</p>
+
+<p><img src="/images/2014/07/nailed_it.jpg" alt="snapshot" /></p>
+
+<p>Let&rsquo;s take this a step further, introducting <em>collections</em>. Collections allow
+you to group graphs on a same page, for instance graphs relating to the same
+host.</p>
+
+<p>Using the same method described earlier, I created a second graph titled
+&ldquo;host1.example.net — network traffic&rdquo; featuring <em>host1.example.net</em>&rsquo;s <code>eth0</code>
+network interface inbound and outbound traffic.</p>
+
+<p>To create a new collection, head to the <em>collection</em> section in the
+administration panel and click on the <strong>+</strong> (<em>plus</em>) sign next to the section
+title. Then, start typing the title of the graphs you want to add to the
+collection — the auto-completion will help you and click on the <em>Add</em> button
+to add them to the graphs list:</p>
+
+<p><img src="/images/2014/07/facette101-admin_newcollection1.png" alt="snapshot" /></p>
+
+<p>Once you&rsquo;re done, move on to the next step and finalize the collection
+creation by giving it a name — let&rsquo;s say &ldquo;host1.example.net&rdquo; — and save it.</p>
+
+<p>Back to the public side, you can now see our collection appear in the list on
+the left: click on it to browse it.</p>
+
+<p><img src="/images/2014/07/facette101-collection.png" alt="snapshot" /></p>
+
+<p>Stay tuned for more articles diving into the details and features of Facette!</p>
+        <footer>
+            <div class="author">
+                <strong>Development Team</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> Paris, France</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="https://facette.io/">https://facette.io/</a></span>
+            </div>
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text=Facette%20101&amp;url=https%3a%2f%2fblog.facette.io%2f2014%2f07%2f31%2ffacette-101%2f"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.facette.io%2f2014%2f07%2f31%2ffacette-101%2f"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url=https%3a%2f%2fblog.facette.io%2f2014%2f07%2f31%2ffacette-101%2f"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    <nav>
+        <a class="prev" href="/2014/07/12/facette-0-1-1-released/">
+            <span class="label">Previous post</span>
+            <strong class="title">Facette 0.1.1 released</strong>
+            <time datetime="2014-07-12">July 12, 2014</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="next" href="/2014/08/01/facette-0-1-2-released/">
+            <span class="label">Next post</span>
+            <strong class="title">Facette 0.1.2 released</strong>
+            <time datetime="2014-08-01">August 01, 2014</time>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on April 15, 2018 - 14:57</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>

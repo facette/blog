@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facette 0.4.0alpha1 released</title>
+    <meta name="description" content="">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facette 0.4.0alpha1 released">
+    <meta property="og:description" content="It&rsquo;s been an awfully long time since the latest release, and we&rsquo;re truly sorry
+for that. However here&rsquo;s the good news: the first alpha release of Facette
+0.4.0 is here, and there&rsquo;s a lot to say about it.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/2017/06/21/facette-0-4-0alpha1-released/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/2017/06/21/facette-0-4-0alpha1-released/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>Facette 0.4.0alpha1 released</h1>
+            <time class="field" datetime="2017-06-21">
+                <span class="far fa-calendar"></span>
+                June 21, 2017
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                5 min
+            </span>
+        </header>
+        <p>It&rsquo;s been an awfully long time since the latest release, and we&rsquo;re truly sorry
+for that. However here&rsquo;s the good news: the first alpha release of Facette
+0.4.0 is here, and there&rsquo;s a lot to say about it.</p>
+
+<h2 id="the-only-thing-that-s-changed-is-everything">&ldquo;The only thing that&rsquo;s changed is everything&rdquo;</h2>
+
+<p>The reason why it&rsquo;s been so long since the last version of Facette is simple.
+The code started to feel more and more difficult to maintain, and we&rsquo;ve come
+to the only logical conclusion: we had to rewrite everything, from back-end to
+front-end. It&rsquo;s been a tremendous amount of work, and so much has changed
+internally it was simply not possible to do it gradually from version to
+version.</p>
+
+<h2 id="what-s-new-in-facette-0-4-0">What&rsquo;s new in Facette 0.4.0</h2>
+
+<h3 id="tl-dr">TL;DR</h3>
+
+<ul>
+<li>Front-end rewritten from scratch</li>
+<li>Back-end rewritten from scratch</li>
+<li>SQL Database-backed storage (MySQL, PostgreSQL, SQLite)</li>
+<li>YAML-based configuration file format</li>
+<li>Collection templates</li>
+<li>Collection/graph aliasing (permalinks)</li>
+<li>Variable columns collection graphs display</li>
+<li>Support for API batch queries</li>
+<li>Built-in UI files</li>
+<li>UI localization</li>
+<li>Performance improvements</li>
+</ul>
+
+<h3 id="front-end-rewritten-from-scratch">Front-end rewritten from scratch</h3>
+
+<p>The new front-end is now a single-page application (SPA) that fully relies on
+the back-end API to operate.</p>
+
+<p>It uses <a href="https://angularjs.org/">AngularJS</a> instead of hand-made JavaScript and
+<a href="https://d3js.org/">d3.js</a> for graph rendering, thus resolving the
+<a href="https://github.com/facette/facette/issues/300">licensing issue</a> with Highcharts JS library.</p>
+
+<p>This redesigned front-end comes with various improvements and new features,
+such as:</p>
+
+<ul>
+<li><em>Provider</em> management through the web UI</li>
+<li>Simplified graph creation workflow</li>
+<li>Drag&rsquo;n&rsquo;drop support to manage data reordering</li>
+<li>Better pagination support</li>
+<li>Foldable side bar</li>
+<li>Multiple columns display in collections</li>
+<li>Basic responsiveness support</li>
+<li>Keyboard friendly UI</li>
+<li>Integrated color picker</li>
+<li>Alternative operations shortcuts when pressing <code>Alt</code> key</li>
+</ul>
+
+<h3 id="back-end-rewritten-from-scratch">Back-end rewritten from scratch</h3>
+
+<p>As for the front-end, the back-end code architecture was suffering from design
+issues and implementing new features was proving difficult on the long run.
+This new implementation benefits from those previous design mistakes and
+should be more future-proof.</p>
+
+<h3 id="sql-database-backed-storage-mysql-postgresql-sqlite">SQL Database-backed storage (MySQL, PostgreSQL, SQLite)</h3>
+
+<p>The previous versions of Facette were storing library items as flat JSON files
+locally on the filesystem. It turned out to be both ineffective
+performance-wise at scale, and limiting regarding the features we wanted to
+implement. As a result, we&rsquo;ve opted for a natural evolution of the back-end by
+storing in a RDBMS not only the Facette library, but also the <em>providers</em>
+configuration.</p>
+
+<p>We acknowledge this change may not be welcomed by everybody, as database
+systems are a potential source of operational complexity. However the good
+news is that besides <strong>MySQL</strong> and <strong>PostgreSQL</strong>, we also made sure to
+support <strong>SQLite</strong> for small and simple Facette deployments. Facette 0.4.0
+comes with a new <code>facettectl</code> utility providing <em>dump/restore</em> features to
+back up your Facette setup easily, and switch from a RDBMS system to another
+seamlessly.</p>
+
+<h3 id="yaml-based-configuration-file-format">YAML-based configuration file format</h3>
+
+<p>In order to simplify the back-end configuration management, we&rsquo;ve decided to
+switch to the well-known <a href="http://yaml.org/">YAML</a> format. Converting JSON to YAML is easy,
+plus you&rsquo;ll finally be able to use comments in your configuration file :)</p>
+
+<h3 id="collection-templates">Collection templates</h3>
+
+<p><a href="/2015/03/23/dive-into-facette-graph-templates/">Graph templates</a> – introduced in in Facette 0.3.x –
+allowed you to standardize graphs by creating a reference <em>template</em> that can
+be instantiated many times by specifying <em>attributes</em> to customize the final
+graph, e.g. changing the name of the source or the name of a metric. Today
+Facette gets even more flexible by bringing the same feature to collections:
+you can now create a collection <em>template</em> referencing graph <em>templates</em> (or
+even plain graphs if you want), and instantiate it specifying attributes such
+as a source name: when displaying the instantiated collection, all of its
+graphs will be rendered by inheriting the collection attributes.</p>
+
+<p>Collection templates is an essential feature for the users using Facette in
+medium to large setups.</p>
+
+<h3 id="collection-graph-aliasing-permalinks">Collection/graph aliasing (permalinks)</h3>
+
+<p>Although cosmetic, this new feature will come in handy when you exchange links
+to Facette graphs or collections with somebody: instead of the cryptic
+resource UUID in the URL it is now possible to set an <em>alias</em> to graphs and
+collections, making URLs both more user-friendly and persistent.</p>
+
+<h3 id="variable-columns-collection-graphs-display">Variable columns collection graphs display</h3>
+
+<p>A new user interface mode has been implemented to display graphs in 2 or even
+3 columns, very convenient to see more graphs at a glance. Also, the lateral
+navigation bar is now fold-able to give more room to graphs displaying –
+perfect for monitoring dashboards!</p>
+
+<h3 id="support-for-api-batch-queries">Support for API batch queries</h3>
+
+<p>To avoid round trips when multiple operations needs to be performed on the
+API, a new <code>/bulk</code> endpoint has been created. See <a href="https://docs.facette.io/latest/api/bulk/">documentation</a>
+for details.</p>
+
+<h3 id="built-in-ui-files">Built-in UI files</h3>
+
+<p>In order to simplify even more Facette deployments, we now also ship the web
+UI files built-in to the back-end binary.</p>
+
+<h3 id="ui-localization">UI localization</h3>
+
+<p>Starting with this release, Facette supports UI localization. In addition to
+English, French is now available. Contributions for more languages are
+welcome!</p>
+
+<h3 id="performance-improvements">Performance improvements</h3>
+
+<p>This new version of Facette brings a lot of improvements at every level,
+especially much better to the web UI reactivity and precision in the time
+series rendering.</p>
+
+<h2 id="caution-wet-paint">⚠️ Caution! Wet paint ⚠️</h2>
+
+<p>This is an alpha release of Facette: despite our best efforts and weeks of
+real-life testing, given the amount of internal changes we expect bugs and
+problems. Please test it and report any issue you might encounter at
+<a href="https://github.com/facette/facette/issues">Github</a> and we&rsquo;ll do our best to fix them in order to release
+a stable 0.4.0 version as soon as possible.</p>
+
+<p>As usual, Linux packages and various pre-compiled versions are available on
+<a href="https://github.com/facette/facette/releases/tag/0.4.0alpha1">Github</a>, and the image is up-to-date on the <a href="https://hub.docker.com/r/facette/facette/">Docker Hub</a>.</p>
+        <footer>
+            <div class="author">
+                <strong>Development Team</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> Paris, France</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="https://facette.io/">https://facette.io/</a></span>
+            </div>
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text=Facette%200.4.0alpha1%20released&amp;url=https%3a%2f%2fblog.facette.io%2f2017%2f06%2f21%2ffacette-0-4-0alpha1-released%2f"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.facette.io%2f2017%2f06%2f21%2ffacette-0-4-0alpha1-released%2f"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url=https%3a%2f%2fblog.facette.io%2f2017%2f06%2f21%2ffacette-0-4-0alpha1-released%2f"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    <nav>
+        <a class="prev" href="/2015/07/08/facette-0-3-0-released/">
+            <span class="label">Previous post</span>
+            <strong class="title">Facette 0.3.0 released</strong>
+            <time datetime="2015-07-08">July 08, 2015</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="next" href="/2017/07/09/facette-0-4-0rc1-released/">
+            <span class="label">Next post</span>
+            <strong class="title">Facette 0.4.0rc1 released</strong>
+            <time datetime="2017-07-09">July 09, 2017</time>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on April 15, 2018 - 14:57</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>

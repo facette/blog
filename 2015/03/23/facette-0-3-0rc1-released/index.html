@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facette 0.3.0rc1 released</title>
+    <meta name="description" content="">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facette 0.3.0rc1 released">
+    <meta property="og:description" content="The long overdue 0.3.0 release is finally around the corner! We&rsquo;ve decided to
+release the next version of Facette as a release candidate due to the
+number of changes and new features: although we&rsquo;ve done our best to test it
+and run it in production for weeks to squash bugs, we&rsquo;d like users to provide
+feedback before releasing the 0.3.0 version.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/2015/03/23/facette-0-3-0rc1-released/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/2015/03/23/facette-0-3-0rc1-released/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>Facette 0.3.0rc1 released</h1>
+            <time class="field" datetime="2015-03-23">
+                <span class="far fa-calendar"></span>
+                March 23, 2015
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                3 min
+            </span>
+        </header>
+        <p>The long overdue 0.3.0 release is finally around the corner! We&rsquo;ve decided to
+<a href="https://github.com/facette/facette/releases/tag/0.3.0rc1">release</a> the next version of Facette as a <em>release candidate</em> due to the
+number of changes and new features: although we&rsquo;ve done our best to test it
+and run it in production for weeks to squash bugs, we&rsquo;d like users to provide
+feedback before releasing the 0.3.0 version.</p>
+
+<h2 id="new-in-0-3-0rc1">New in 0.3.0rc1</h2>
+
+<h3 id="kairosdb-connector">KairosDB connector</h3>
+
+<p>Connectors are what make Facette&rsquo;s value, and it&rsquo;s always a big deal to us
+when we can add support for another time series datastore. It&rsquo;s an even bigger
+deal when a whole new connector is provided to us by another open source
+community fellow: we&rsquo;d like to thank again <a href="https://github.com/iaean">Andreas Schulze</a> for his
+precious contribution with the <a href="https://github.com/kairosdb/kairosdb">KairosDB</a> connector.</p>
+
+<h3 id="graph-templates">Graph templates</h3>
+
+<p>We acknowledge that deploying Facette in a real production environment is not
+the same using it for simple personal needs, and managing large libraries with
+hundreds of graphs is currently quite tiresome.</p>
+
+<p>We&rsquo;re introducing in this release a more convenient way to create graphs
+dynamically using graph templates: instead of manually creating similar graphs
+– e.g. for clusters or similar services – you only create a template that is
+applied to multiple graph instances that are provided with the &ldquo;changing&rdquo;
+attributes such as the source and parts of the metric name. Learn how to use
+templates in <a href="https://blog.facette.io/2015/03/23/dive-into-facette-graph-templates/">this post</a>.</p>
+
+<p>As with the rest of the backend, templates and templated graph management is
+available through the <a href="http://docs.facette.io/api/library/">REST API</a>.</p>
+
+<h3 id="support-for-tls-in-influxdb-connector">Support for TLS in InfluxDB connector</h3>
+
+<p>As asked by someone who contacted us via email, TLS connection to a backend is
+now available in the InfluxDB connector: check the documentation to learn how
+to enable it.</p>
+
+<h3 id="support-for-multiple-consolidation-functions-in-rrdtool-connector">Support for multiple consolidation functions in RRDtool connector</h3>
+
+<p>The <code>rrd</code> connector has been improved to support all
+<a href="http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html#IRRA_CF_cf_arguments">consolidation functions</a> available in the RRDtool files, generating one
+metric per CF.</p>
+
+<p><strong>Important</strong>:</p>
+
+<p>As for now consolidation functions will suffix metrics names, so it might
+break some of your old graphs.</p>
+
+<p>If you want to mimic old Facette versions behavior you can add the following
+lines at the top of your providers filters:</p>
+
+<pre><code class="language-json">…
+  &quot;filters&quot;: [
+    { &quot;action&quot;: &quot;sieve&quot;, &quot;target&quot;: &quot;metric&quot;, &quot;pattern&quot;: &quot;/average$&quot; },
+    { &quot;action&quot;: &quot;rewrite&quot;, &quot;target&quot;: &quot;metric&quot;, &quot;pattern&quot;: &quot;/average$&quot;, &quot;into&quot;: &quot;&quot; },
+    …
+  ]
+…
+</code></pre>
+
+<h3 id="file-loading-speed-up">File loading speed-up</h3>
+
+<p>File tree walking is now powered by a concurrent walking function, in some
+cases dramatically improving file parsing performance with large file
+collections.</p>
+
+<h3 id="customizable-consolidation-function">Customizable consolidation function</h3>
+
+<p>It is now possible to choose which consolidation function to apply – e.g.
+<em>min</em>, <em>max</em>, <em>average</em>, <em>sum</em>, <em>last</em>&hellip; – when grouping and/or normalizing
+series.</p>
+
+<h3 id="collections-display-improvements">Collections display improvements</h3>
+
+<p>The web UI has gotten some love too, with new features such as:</p>
+
+<ul>
+<li>on-the-fly global periodic refresh timer</li>
+<li>on-the-fly global time period selection</li>
+<li>global legend [un]folding toggle switch</li>
+</ul>
+
+<h3 id="api-changes">API changes</h3>
+
+<p>The <code>/api/v1/graps/plots</code> REST API endpoint has been changed to
+<code>/api/v1/plots</code>.</p>
+
+<h3 id="bug-fixes">Bug fixes</h3>
+
+<p>As always, this release fixes a number of bugs and glitches. We do our best to
+improve Facette by using it daily in a production environment, but with the
+addition of new connectors it becomes harder to cover every possible use case:
+your feedback is extremely valuable to us, don&rsquo;t hesitate to open an issue at
+Github, contact us via email or reach out to us on <a href="https://twitter.com/FacetteIO">Twitter</a>.</p>
+        <footer>
+            <div class="author">
+                <strong>Development Team</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> Paris, France</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="https://facette.io/">https://facette.io/</a></span>
+            </div>
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text=Facette%200.3.0rc1%20released&amp;url=https%3a%2f%2fblog.facette.io%2f2015%2f03%2f23%2ffacette-0-3-0rc1-released%2f"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.facette.io%2f2015%2f03%2f23%2ffacette-0-3-0rc1-released%2f"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url=https%3a%2f%2fblog.facette.io%2f2015%2f03%2f23%2ffacette-0-3-0rc1-released%2f"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    <nav>
+        <a class="prev" href="/2014/12/15/facette-0-2-3-released/">
+            <span class="label">Previous post</span>
+            <strong class="title">Facette 0.2.3 released</strong>
+            <time datetime="2014-12-15">December 15, 2014</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="next" href="/2015/03/23/dive-into-facette-graph-templates/">
+            <span class="label">Next post</span>
+            <strong class="title">Dive into Facette: graph templates</strong>
+            <time datetime="2015-03-23">March 23, 2015</time>
+            <span class="fas fa-chevron-right"></span>
+        </a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on April 15, 2018 - 14:57</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>
