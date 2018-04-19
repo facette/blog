@@ -30,8 +30,10 @@
     "webpack-cli": "2.0.14"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && hugo",
+    "clean": "rm -rf dist/ static/assets/",
     "lint": "eslint --ext js --fix ui/",
+    "release": "git stash save before-gh-pages; yarn build && git checkout gh-pages && cp -rf dist/* . && rm -rf dist/ static/",
     "serve": "concurrently --kill-others 'webpack --watch' 'hugo server --watch'"
   }
 }
