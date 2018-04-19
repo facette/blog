@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ cond (ne .Title "") .Title .Site.Title }}</title>
-    <meta name="description" content="{{ cond .IsHome .Site.Params.Description ""}}">
+    <meta name="description" content="{{ cond .IsHome .Site.Params.Description "" }}">
     <meta name="referer" content="origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="{{ cond (ne .Title "") .Title .Site.Title }}">
+    <meta property="og:description" content="{{ cond .IsHome .Site.Params.Description .Summary }}">
+    <meta property="og:type" content="{{ cond .IsHome "website" "article" }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}assets/logo-single.png">
+    <meta property="og:url" content="{{ .Permalink }}">
     <link rel="alternate" type="application/rss+xml" title="Facette" href="{{ .Site.RSSLink }}">
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="shortcut icon" href="/assets/favicon.png">

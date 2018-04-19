@@ -1,5 +1,6 @@
 import "./assets/favicon.png";
 import "./assets/logo.png";
+import "./assets/logo-single.png";
 
 import smoothscroll from "smoothscroll-polyfill";
 smoothscroll.polyfill();
