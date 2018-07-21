@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.facette.io/2018/07/21/facette-0-4-1-released/</loc>
+    <lastmod>2018-07-21T21:39:08+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.facette.io/2017/12/19/facette-0-4-0-released/</loc>
     <lastmod>2018-04-15T14:57:38+02:00</lastmod>
   </url>
@@ -84,13 +89,13 @@
   
   <url>
     <loc>https://blog.facette.io/</loc>
-    <lastmod>2018-04-15T14:57:38+02:00</lastmod>
+    <lastmod>2018-07-21T21:39:08+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.facette.io/post/</loc>
-    <lastmod>2018-04-15T14:57:38+02:00</lastmod>
+    <lastmod>2018-07-21T21:39:08+02:00</lastmod>
     <priority>0</priority>
   </url>
   
