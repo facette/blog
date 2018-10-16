@@ -3,6 +3,7 @@ const path = require("path");
 const Autoprefixer = require("autoprefixer");
 const CleanPlugin = require("clean-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 const assetsDir = path.resolve(__dirname, "static/assets");
 
@@ -64,7 +65,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|svg|woff2?)$/,
+                test: /\.(jpg|png|svg|woff2?)$/,
                 loader: "file-loader",
                 options: {
                     name: "/[name].[ext]",
@@ -79,10 +80,11 @@ module.exports = {
         new MiniCSSExtractPlugin({
             filename: "[name].css",
         }),
+        new UglifyJSPlugin(),
     ],
-    stats: "errors-only",
     devServer: {
         historyApiFallback: true,
         port: 9000,
     },
+    stats: "errors-only",
 };

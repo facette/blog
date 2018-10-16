@@ -5,7 +5,6 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:vue/base"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -13,7 +12,6 @@
   },
   "plugins": [
     "html",
-    "vue"
   ],
   "root": true,
   "rules": {
@@ -44,7 +42,7 @@
       4
     ],
     "no-console": [
-      "error",
+      "warn",
       {
         "allow": ["error", "warn"]
       }
