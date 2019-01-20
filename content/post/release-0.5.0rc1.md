@@ -34,7 +34,7 @@ launched.
 Along with console and file logging previously available in Facette. It's now
 possible to send logging information to a local or a remote Syslog instance.
 
-See [configuration](docs-config) for details.
+See [configuration][docs-config] for details.
 
 ### Keyboard shortcuts
 
@@ -67,7 +67,7 @@ allow the usage of user friendly URLs instead of Facette’s internal identifier
 The configuration has been rearranged into functional sections, making the old
 configuration incompatible.
 
-See [example configuration](examples-config) for details.
+See [example configuration][examples-config] for details.
 
 ### UI improvements
 
