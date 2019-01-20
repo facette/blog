@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facette 0.5.0rc1 released</title>
+    <meta name="description" content="">
+    <meta name="referer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facette 0.5.0rc1 released">
+    <meta property="og:description" content="We know that it&rsquo;s been quite some time since the latest release. But wait no
+more, the first release candidate of the 0.5.0 is here!">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://blog.facette.io/assets/logo-single.png">
+    <meta property="og:url" content="https://blog.facette.io/2019/01/20/facette-0-5-0rc1-released/">
+    <link rel="alternate" type="application/rss+xml" title="Facette" href="https://blog.facette.io/feed.xml">
+    <link rel="canonical" href="https://blog.facette.io/2019/01/20/facette-0-5-0rc1-released/">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="/">
+        <img alt="logo" src="/assets/logo.png">
+    </a>
+</header>
+
+<main class="content">
+    <article>
+        <header>
+            <h1>Facette 0.5.0rc1 released</h1>
+            <time class="field" datetime="2019-01-20">
+                <span class="far fa-calendar"></span>
+                January 20, 2019
+            </time>
+            <span class="field reading">
+                <span class="far fa-clock"></span>
+                2 min
+            </span>
+        </header>
+        <p>We know that it&rsquo;s been quite some time since the latest release. But wait no
+more, the first <em>release candidate</em> of the 0.5.0 is here!</p>
+
+<h2 id="what-s-new">What&rsquo;s new</h2>
+
+<h3 id="tl-dr">TL;DR</h3>
+
+<ul>
+<li>Warm startup</li>
+<li>Syslog logging</li>
+<li>Keyboard shortcuts</li>
+<li>Duration Y axis unit</li>
+<li>Y axis extremes support</li>
+<li>Aliases in the URLs</li>
+<li>Rearranged configuration</li>
+<li>UI improvements</li>
+</ul>
+
+<h3 id="warm-startup">Warm startup</h3>
+
+<p>Using Facette with back-ends having thousands of sources and metrics
+can really slow down its startup process.</p>
+
+<p>Starting with this release, Facette will persist its internal catalog state
+across restarts to ensure the service is available as quickly as possible when
+launched.</p>
+
+<h3 id="syslog-logging">Syslog logging</h3>
+
+<p>Along with console and file logging previously available in Facette. It&rsquo;s now
+possible to send logging information to a local or a remote Syslog instance.</p>
+
+<p>See <a href="docs-config">configuration</a> for details.</p>
+
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+
+<p>Keyboard shortcuts support has been added to the front-end. By pressing
+“?” you&rsquo;ll be presented a list of available shortcuts to perform basic actions
+or to jump to different sections of the front-end UI.</p>
+
+<p><img src="/images/2019/01/facette-keyboard_shortcuts.png" alt="" /></p>
+
+<h3 id="duration-y-axis-unit">Duration Y axis unit</h3>
+
+<p>Facette now supports a “duration” Y axis unit type. Choosing duration and
+a base unit will automatically format values as durations.</p>
+
+<p><img src="/images/2019/01/facette-duration_unit.png" alt="" /></p>
+
+<h3 id="y-axis-extremes-support">Y axis extremes support</h3>
+
+<p>Extreme bounds support has been added to the front-end rendering of graphs. By
+setting minimum and/or maximum values, you can limit the range of the rendered
+area.</p>
+
+<h3 id="aliases-in-the-urls">Aliases in the URLs</h3>
+
+<p>As of today, graphs and collections aliases are supported in the URL. This will
+allow the usage of user friendly URLs instead of Facette’s internal identifiers.</p>
+
+<h3 id="rearranged-configuration">Rearranged configuration</h3>
+
+<p>The configuration has been rearranged into functional sections, making the old
+configuration incompatible.</p>
+
+<p>See <a href="examples-config">example configuration</a> for details.</p>
+
+<h3 id="ui-improvements">UI improvements</h3>
+
+<p>This release comes with a lot of fixes and minor improvements to the front-end
+side of Facette.</p>
+
+<p>Last but not least, some under-the-hood changes in this release:</p>
+
+<ul>
+<li>the switch to HTML Canvas for graphs rendering, greatly improving the UI
+responsiveness when browsing quite large collections;</li>
+<li>provider startup errors are now reported in the associated
+administration panel section, to avoid looking at the logs in case of
+a simple misconfiguration;</li>
+<li>missing data points interpolation has been drop, automatically detecting gaps
+to prevent rendering bugs.</li>
+</ul>
+
+<h2 id="caution">⚠️ Caution️</h2>
+
+<p>Despite our best efforts, you may experience some bugs and problems. Please
+test it and report any issue at <a href="https://github.com/facette/facette/issues">GitHub</a>.</p>
+
+<p>As usual, Linux packages and various pre-compiled versions are available on
+<a href="https://github.com/facette/facette/releases/tag/0.5.0rc1">GitHub</a> and on the <a href="https://hub.docker.com/r/facette/facette/">Docker Hub</a>.</p>
+        <footer>
+            <div class="author">
+                <strong>Development Team</strong>
+                <span class="field location"><span class="fas fa-map-marker-alt"></span> Paris, France</span>
+                <span class="field url"><span class="fas fa-link"></span> <a href="https://facette.io/">https://facette.io/</a></span>
+            </div>
+            <div class="share">
+                <strong>Share post</strong>
+                <a href="https://twitter.com/intent/tweet?text=Facette%200.5.0rc1%20released&amp;url=https%3a%2f%2fblog.facette.io%2f2019%2f01%2f20%2ffacette-0-5-0rc1-released%2f"><span class="twitter fab fa-twitter-square"></a></span>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.facette.io%2f2019%2f01%2f20%2ffacette-0-5-0rc1-released%2f"><span class="facebook fab fa-facebook-square"></span></a>
+                <a href="https://plus.google.com/share?url=https%3a%2f%2fblog.facette.io%2f2019%2f01%2f20%2ffacette-0-5-0rc1-released%2f"><span class="google-plus fab fa-google-plus-square"></span></a>
+            </div>
+        </footer>
+    </article>
+    <nav>
+        <a class="prev" href="/2018/07/21/facette-0-4-1-released/">
+            <span class="label">Previous post</span>
+            <strong class="title">Facette 0.4.1 released</strong>
+            <time datetime="2018-07-21">July 21, 2018</time>
+            <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="placeholder"></a>
+    </nav>
+</main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/facette"><span class="fab fa-github"></span> Github</a></li>
+            <li><a href="https://twitter.com/FacetteIO"><span class="fab fa-twitter"></span> Twitter</a></li>
+            <li><a rel="alternate" type="application/rss+xml" href="https://blog.facette.io/feed.xml"><span class="fas fa-rss"></span> Subscribe</a></li>
+        </ul>
+        <p class="modified">Last updated on January 20, 2019 - 13:30</p>
+    </footer>
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/app.js"></script>
+</body>
+</html>
+

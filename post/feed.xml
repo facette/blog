@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Facette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Jul 2018 19:11:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.facette.io/post/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Facette 0.5.0rc1 released</title>
+      <link>https://blog.facette.io/2019/01/20/facette-0-5-0rc1-released/</link>
+      <pubDate>Sun, 20 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2019/01/20/facette-0-5-0rc1-released/</guid>
+      <description>&lt;p&gt;We know that it&amp;rsquo;s been quite some time since the latest release. But wait no
+more, the first &lt;em&gt;release candidate&lt;/em&gt; of the 0.5.0 is here!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Facette 0.4.1 released</title>
@@ -17,9 +27,8 @@
       <pubDate>Sat, 21 Jul 2018 19:11:00 +0000</pubDate>
       
       <guid>https://blog.facette.io/2018/07/21/facette-0-4-1-released/</guid>
-      <description>Hi there, here is a quick update to let you know that we&amp;rsquo;ve just published the version 0.4.1 of Facette fixing a couple bugs:
- Fix InfluxDB tags parsing Fix collections tree listing with aliases  Linux packages and various pre-compiled versions are available on Github, and the image is up-to-date on the Docker Hub.
-Thank you for helping us making Facette better!</description>
+      <description>&lt;p&gt;Hi there, here is a quick update to let you know that we&amp;rsquo;ve just published the
+version 0.4.1 of Facette fixing a couple bugs:&lt;/p&gt;</description>
     </item>
     
     <item>
