@@ -6,10 +6,23 @@
     <description>Recent content on Facette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 06:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.facette.io/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Facette 0.5.0 released</title>
+      <link>https://blog.facette.io/2019/07/24/facette-0-5-0-released/</link>
+      <pubDate>Wed, 24 Jul 2019 06:00:00 +0000</pubDate>
+      
+      <guid>https://blog.facette.io/2019/07/24/facette-0-5-0-released/</guid>
+      <description>&lt;p&gt;After long 6 months of testing phase, we&amp;rsquo;re releasing the 0.5.0 branch of
+Facette.&lt;/p&gt;
+
+&lt;p&gt;Here are the highlights of this version (you can read the changes details and
+improvements in the &lt;a href=&#34;https://blog.facette.io/2019/01/20/facette-0-5-0rc1-released/&#34;&gt;post announcing the rc1 release&lt;/a&gt;):&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Facette 0.5.0rc1 released</title>

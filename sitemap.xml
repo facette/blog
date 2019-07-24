@@ -3,6 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.facette.io/</loc>
+    <lastmod>2019-07-24T08:15:20+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.facette.io/2019/07/24/facette-0-5-0-released/</loc>
+    <lastmod>2019-07-24T08:15:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.facette.io/post/</loc>
+    <lastmod>2019-07-24T08:15:20+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.facette.io/2019/01/20/facette-0-5-0rc1-released/</loc>
     <lastmod>2019-01-20T13:36:11+01:00</lastmod>
   </url>
@@ -89,18 +106,6 @@
   
   <url>
     <loc>https://blog.facette.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.facette.io/</loc>
-    <lastmod>2019-01-20T13:36:11+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.facette.io/post/</loc>
-    <lastmod>2019-01-20T13:36:11+01:00</lastmod>
     <priority>0</priority>
   </url>
   
